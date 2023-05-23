@@ -8,23 +8,26 @@ function App() {
   );
 }
 
+// MAP OPERATOR
+// <h1>Delhi</h1>
 function EventDemo() {
-  // delcaring and destructing the stateful variable
-  // let title = "Hello World";
-  let [title, setTitle] = useState("Hello World");
-
-  // Member Funcn
-  let changeTitle = () => {
-    let newTitle = "Hi " + title;
-
-    // re-render; asking the REact, to perform DOM operation
-    setTitle(newTitle);
-  };
+  let list = ["Delhi", "Calcutta", "Kochi", "Mumbai"];
 
   return (
     <div>
-      <h1>{title}</h1>
-      <input type="button" value="Change the Title" onClick={changeTitle} />
+      <h1>List Demo </h1>
+
+      {list.map((item) => (
+        <div className="alert alert-primary mb-1">{item}</div>
+      ))}
+
+      {/** ANY AS HEADLINE */}
+      {list.map((item) => (
+        <h1>{item}</h1>
+      ))}
+
+      {/** SIMPLE STING */}
+      {list.map((item) => item)}
     </div>
   );
 }
