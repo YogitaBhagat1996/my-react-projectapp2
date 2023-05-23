@@ -8,27 +8,24 @@ function App() {
   );
 }
 
-// MAP OPERATOR
-// <h1>Delhi</h1>
 function EventDemo() {
-  let [list, setList] = useState(["delhi", "chennai"]);
+  // let counter = 100;
+  let [counter, setCounter] = useState(100);
 
-  // Member Funcn
-  let addNewItem = () => {
-    // let newList = [...list, "kochi"];
-    let newList = ["kochi", ...list];
-    setList(newList);
+  let likeMe = () => {
+    counter = counter + 1;
+
+    // PERFORM DOM OPERATION
+    setCounter(counter);
   };
 
   return (
     <div>
-      <h1>List Demo </h1>
-      <input type="button" value="Add new Item" onClick={addNewItem} />
+      <h1>Like</h1>
 
-      <hr />
-      {list.map((item) => (
-        <h1>{item}</h1>
-      ))}
+      <h1>{counter}</h1>
+
+      <input type="button" value="Like Me" onClick={likeMe} />
     </div>
   );
 }
