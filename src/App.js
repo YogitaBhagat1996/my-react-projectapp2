@@ -26,10 +26,16 @@ function EventDemo() {
     setTodo("");
   };
 
+  let deleteTodo = (index) => {
+    list.splice(index, 1);
+    console.log(list);
+    setList([...list]);
+  };
+
   // UI
   return (
     <div>
-      <h1>List Demo </h1>
+      <h1 className="bg-success text-white p-3">Todo App </h1>
 
       <input
         type="text"
@@ -41,8 +47,11 @@ function EventDemo() {
 
       <hr />
 
-      {list.map((item) => (
-        <h1>{item}</h1>
+      {list.map((item, index) => (
+        <div key={index} className="d-flex justify-content-between">
+          <h1>{item}</h1>
+          <input type="button" value="DEL" onClick={() => deleteTodo(index)} />
+        </div>
       ))}
     </div>
   );
