@@ -11,23 +11,29 @@ function App() {
 // MAP OPERATOR
 // <h1>Delhi</h1>
 function EventDemo() {
-  let list = ["Delhi", "Calcutta", "Kochi", "Mumbai"];
+  let [list, setList] = useState(["todo1"]);
+
+  // Member Funcn
+  let addNewItem = () => {
+    // We should not use document object
+    let inputTag = document.querySelector("#inputid");
+    let inputValue = inputTag.value;
+
+    let newList = [inputValue, ...list];
+    setList(newList);
+  };
 
   return (
     <div>
       <h1>List Demo </h1>
 
-      {list.map((item) => (
-        <div className="alert alert-primary mb-1">{item}</div>
-      ))}
+      <input type="text" placeholder="Enter Todo" id="inputid" />
+      <input type="button" value="Add new Item" onClick={addNewItem} />
 
-      {/** ANY AS HEADLINE */}
+      <hr />
       {list.map((item) => (
         <h1>{item}</h1>
       ))}
-
-      {/** SIMPLE STING */}
-      {list.map((item) => item)}
     </div>
   );
 }
